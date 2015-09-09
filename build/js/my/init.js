@@ -298,3 +298,44 @@ $('.block-18').bind('inview', function(event, isInView, visiblePartX, visiblePar
 }
 
 
+
+$( document ).ready(function() {
+ $("form").submit(function( event ) {
+
+  var host = "http://srv60520.ht-test.ru/travel/";//document.location.host;
+  var pahtname = window.location.pathname;
+  var params = window.location.href.split("?")[1];
+  params = params == null ? "": params;
+  var restUrl = "http://statistics.jelastic.regruhosting.ru/api/pushData";
+  //var restUrl = "http://localhost:8080/rest/api/pushData";
+
+  var data = "{" +
+   "\"formData\": [{";
+  var formData = "";
+  $(this).find('input, select, textarea').each(function(){
+   formData += "\"" + $(this).attr("name") + "\":\"" + $(this).val() + "\",";
+  });
+  if (formData.length > 0)
+   formData.substring(0, data.length-1);
+  data += formData + "}],";
+
+  data += "\"host\":\"" + host + "\",";
+  data += "\"page\":\"" + pahtname + "\",";
+  data += "\"params\":\"" + params + "\"";
+  data += "}";
+  alert(data);
+  $.ajax({
+   url: restUrl,
+   type: "POST",
+   data: data,
+   contentType: "text/plain; charset=windows-1251",
+   success: function(data){
+    //alert("SUCCESS");
+   },
+   failure: function(errMsg) {
+    //alert("FAILURE");
+   }
+  });
+
+ });
+});
