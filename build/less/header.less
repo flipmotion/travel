@@ -23,10 +23,80 @@
 			font-size: 18px;
 			line-height: 21px; 
 		}
+		button {
+			margin-top: 24px;
+			font-size: 16px;
+			outline:none;
+		}
 	}
-	button {
-		margin-top: 24px;
-		font-size: 16px;
-		outline:none;
+	&-lvl-2 {
+		button {
+			right: 0;
+			position: fixed;
+			top: 20px;
+			    background: transparent;
+			border:none;
+			box-shadow: 0;
+			border-radius: 0;
+			.icon-bar {
+				display: inline-block;
+				margin-bottom: 5px;
+				width: 38px;
+				border-radius: 0;
+				height: 2px;
+				background: #fdc93f;
+				display: table;
+			}
+			&.active {
+				box-shadow: none;
+				    background: transparent;
+				border-radius: 0;
+			}
+			&:hover,&:focus {
+				box-shadow: none;
+				    background: transparent;
+				border-radius: 0;
+			}
+		}
+		position: fixed;
+		left: 0;
+		width: 100%;
+		top:0;
+		ul {
+		    z-index: 3;
+		   
+			position: fixed;
+			left:0;
+			list-style-type: none;
+			padding: 0;
+			margin:0;
+			width: 280px;
+			display: table;
+			transform:translateX(-100%);
+			transition:@transition;
+			li {
+				padding: 0;
+				a {
+					font-size: 16px;
+					.OP-L;
+					text-align: left;
+					color: #333;
+					padding: 15px 25px;
+					border-bottom: 1px solid #f0f0f0;
+					border-top: 1px solid #f0f0f0;
+					margin-top: -1px;
+					background: #fff;
+					text-decoration: none;
+					display: block;
+					position: relative;
+					&:hover,&:focus {
+						background: #fdc93f;
+						border-color: #fdc93f;
+						z-index: 1;
+					}
+				}
+			}
+		}
 	}
+	
 }
