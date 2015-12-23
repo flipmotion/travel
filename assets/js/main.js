@@ -302,7 +302,7 @@ $('.block-18').bind('inview', function(event, isInView, visiblePartX, visiblePar
 $( document ).ready(function() {
 	$("form").submit(function( event ) {
 
-	 var host = "srv60520.ht-test.ru/travel/";//document.location.host;
+	 var host = "1";//document.location.host;
 	 var pahtname = window.location.pathname;
 	 var params = window.location.href.split("?")[1];
 	 var referrer = document.referrer;
